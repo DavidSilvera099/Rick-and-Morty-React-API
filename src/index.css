@@ -1,0 +1,147 @@
+body {
+  background-color: rgb(255, 255, 255);
+  color: rgb(32, 35, 41);
+  font-family: -apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+}
+
+h1 {
+  line-height: 1.1;
+  font-size: 70px;
+  font-weight: 900;
+  display: flex;
+  justify-content: center;
+  margin: 4vh 0;
+}
+
+#mns-not-found {
+  position: absolute;
+  font-size: 40px;
+  color: #FFFFFF;
+  left: 20vw;
+}
+
+.content-card > p > span {
+  color: rgb(158, 158, 158);
+}
+
+.container {
+  background-color: rgb(39, 43, 51);
+  padding: 4.5rem 0px;
+  min-height: 40vh;
+}
+.filters {
+  justify-content: center;
+  display: flex;
+  margin: 4vh 0;
+  gap: 1vw;
+}
+
+#name-filter, #status-filters {
+  padding: 8px 16px;
+  text-align: center;
+  border: 1px solid rgb(39, 43, 51);
+  border-radius: 5px;
+}
+
+#name-filter {
+  width: calc(22% - 16px);
+}
+
+#characters {
+  display: grid;
+  width: 95%;
+  margin: auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1vw;
+}
+
+.character-card {
+  background-color: rgb(60, 62, 68); 
+  color: #FFFFFF; /* Texto en blanco para leer fácilmente */
+  border-radius: 8px; /* Bordes redondeados */
+  margin-left: 6px; /* Margen para separar las tarjetas */
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Centrado de contenido */
+  text-align: left; /* Texto centrado */
+  gap: 1vw;
+}
+
+.character-card img {
+  width: 50%;
+  object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
+  border-radius: 8px 0px 0px 8px;
+}
+.character-card h2 {
+  word-break: break-word;
+  font-size: 1.3rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  
+  margin: 10px 0; /* Espaciado alrededor del nombre */
+  color: #57CC99; /* Color verde claro para destacar el nombre */
+}
+
+.character-card p {
+  margin: 5px 0; /* Menor espaciado para los párrafos */
+  font-size: 16px; /* Tamaño adecuado para lectura */
+  color: #EDEDED; /* Gris claro para el texto, mejor contraste */
+}
+
+.content-card {
+  padding: 0 1vw 0 0;
+}
+
+
+
+@media only screen and (max-width: 480px) {
+  /* Estilos para teléfonos móviles */
+  .container {
+      padding: 2.5rem 0;
+  }
+
+  h1 {
+      font-size: 2.5em;
+  }
+
+  .filters {
+      flex-direction: column;
+  }
+
+  #name-filter, #status-filters {
+      width: 60%;
+      padding: 6px 0px;
+      margin: auto;
+  }
+
+  #characters {
+      grid-template-columns: 1fr;
+  }
+
+  .character-card {
+      margin-bottom: 4vh;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* Estilos para tablets */
+  h1 {
+      font-size: 2.5em;
+  }
+
+  #name-filter {
+      width: calc(45% - 16px);
+  }
+
+  #characters {
+      grid-template-columns: 1fr 1fr;
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  /* Estilos para ordenadores laptop */
+  .filters {
+      margin: 8vh 0;
+  }
+  #name-filter {
+      width: calc(30% - 16px);
+  }
+}
