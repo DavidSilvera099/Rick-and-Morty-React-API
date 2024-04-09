@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'; // Importa componentes de React Router
 import './App.css';
 import SearchAndFilter from "./components/SearchAndFilter";
-import CharacterCard from "./components/CharacterCard"; 
+import CharacterCard from "./components/CharacterCard";
+// Importar el componente CharacterDetails (Asegúrate de crear este componente)
+import CharacterDetails from "./components/CharacterDetails";
 
 function App() {
   // Estados para personajes y filtros de búsqueda.
@@ -15,10 +18,9 @@ function App() {
     try {
       const response = await fetch(url);
       if (!response.ok) {
-        throw new Error(`API call failed with status: ${response.status}`); // Error si la respuesta no es exitosa.
+        throw new Error(`API call failed with status: ${response.status}`);
       }
       const data = await response.json();
-      // Si data.results es vacío, devuelve null "no encontrado"
       if (data.results.length === 0) {
         setCharacters(null); 
       } else {
@@ -36,23 +38,29 @@ function App() {
   }, [nameFilter, statusFilter]);
 
   return (
-    <>
-      <h1>Rick and Morty</h1>
-      <SearchAndFilter setNameFilter={setNameFilter} setStatusFilter={setStatusFilter} />
-      <div className="container">
-        <div id="characters">
-          {characters === null ? (
-            <h2 id="mns-not-found">No se encontraron personajes con ese nombre.</h2>
-          ) : characters.length > 0 ? (
-            characters.map(character => (
-              <CharacterCard key={character.id} character={character} />
-            ))
-          ) : ( <h2 id="mns-not-found">Realiza una búsqueda para encontrar personajes.</h2>)}
-        </div>  
-      </div>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={
+          <>
+            <h1>Rick and Morty</h1>
+            <SearchAndFilter setNameFilter={setNameFilter} setStatusFilter={setStatusFilter} />
+            <div className="container">
+              <div id="characters">
+                {characters === null ? (
+                  <h2 id="mns-not-found">No se encontraron personajes con ese nombre.</h2>
+                ) : characters.length > 0 ? (
+                  characters.map(character => (
+                    <CharacterCard key={character.id} character={character} />
+                  ))
+                ) : ( <h2 id="mns-not-found">Realiza una búsqueda para encontrar personajes.</h2>)}
+              </div>  
+            </div>
+          </>
+        } />
+        <Route path="/character/:id" element={<CharacterDetails />} />
+      </Routes>
+    </BrowserRouter>
   );
-  
 }
 
 export default App;

@@ -92,6 +92,55 @@ h1 {
   padding: 0 1vw 0 0;
 }
 
+/* CharacterDetails.css para tema oscuro */
+
+.character-info {
+  display: flex;
+  padding: 4.5rem 3rem;
+  gap: 4vw;
+  margin: auto;
+  background-color: #333;
+  color: #fff;
+}
+
+.character-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.character-info {
+  color: #ccc;
+}
+
+.character-info p {
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+.character-info span {
+  font-weight: bold;
+  color: #e0e0e0;
+}
+
+.character-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.creation-date, .episode-count {
+  background-color: #444;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
 
 
 @media only screen and (max-width: 480px) {
@@ -121,7 +170,16 @@ h1 {
   .character-card {
       margin-bottom: 4vh;
   }
+
+  .character-info { 
+    flex-direction: column;
+  }
+
+  .character-text {
+    text-align: center;
+  }
 }
+
 @media only screen and (min-width: 481px) and (max-width: 768px) {
   /* Estilos para tablets */
   h1 {
@@ -136,6 +194,7 @@ h1 {
       grid-template-columns: 1fr 1fr;
   }
 }
+
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
   /* Estilos para ordenadores laptop */
   .filters {
